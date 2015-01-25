@@ -82,6 +82,10 @@ if (isset($_SESSION['administrator'])){
 <?php }
 if (isset($_SESSION['administrator'])){
 ?><li>
+	<a class='btn btn-primary' href="student_import.php" target="main"><b><?php echo $MSG_IMPORT.$MSG_USER?></b></a>
+<?php }
+if (isset($_SESSION['administrator'])){
+?><li>
 	<a class='btn btn-primary' href="update_db.php" target="main"><b><?php echo $MSG_UPDATE_DATABASE?></b></a>
 <?php }
 if (isset($OJ_ONLINE)&&$OJ_ONLINE){
@@ -108,3 +112,4 @@ if (isset($OJ_ONLINE)&&$OJ_ONLINE){
 <h4>
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 static 	$DB_HOST="localhost";
 static 	$DB_NAME="jol";
 static 	$DB_USER="root";
-static 	$DB_PASS="root";
+static 	$DB_PASS="ibmx346";
 	// connect db 
 static 	$OJ_NAME="HUSTOJ";
 static 	$OJ_HOME="./";
@@ -75,3 +75,4 @@ if (isset($_SESSION['OJ_LANG'])) $OJ_LANG=$_SESSION['OJ_LANG'];
 	mysql_query("SET time_zone ='+8:00'");
 	
 ?>
+
