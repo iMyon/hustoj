@@ -68,6 +68,29 @@
 	}
 	return $result;
 }
+function assign_pros($user_id){
+  if (isset($user_id) && isset($_GET['cid'])) {
+    $cid = $_GET['cid'];
+    $sql = "SELECT count(*) FROM `con_pro_user` where user_id='$user_id'";
+    $row = mysql_fetch_array( mysql_query($sql) );
+    //如果没有分配题目的话
+    if(!$row[0]){
+      $sql = "SELECT `pro_amount` from `contest` where contest_id='$cid'";
+      $row_contest = mysql_fetch_array( mysql_query($sql) );
+      if($row_contest && $row_contest[0]){
+        $pro_amount = $row_contest[0];
+        $sql = "SELECT * from `contest_problem` where contest_id='$cid' ORDER BY rand() LIMIT $pro_amount";
+        $re = mysql_query($sql);
+        while($row_problem = mysql_fetch_array($re)){
+          //插入数据（分配题目）
+          $sql = "INSERT INTO `con_pro_user` (`problem_id`, `user_id`) VALUES ($row_problem[0], '$user_id')";
+          mysql_query($sql);
+        }
+      }
+    }
+  }
+}
+assign_pros($_SESSION["user_id"]);
 
 	if (isset($_GET['cid'])){
 			$cid=intval($_GET['cid']);
@@ -119,11 +142,17 @@
 				require("template/".$OJ_TEMPLATE."/error.php");
 				exit(0);
 			}
+      $user_id = $_SESSION["user_id"];
+
 			$sql="select * from (SELECT `problem`.`title` as `title`,`problem`.`problem_id` as `pid`,source as source,contest_problem.num as pnum
 
-		FROM `contest_problem`,`problem`
+		FROM `contest_problem`,`problem`,`con_pro_user`
 
 		WHERE `contest_problem`.`problem_id`=`problem`.`problem_id` 
+
+    AND `contest_problem`.problem_id=`con_pro_user`.problem_id
+
+    AND `con_pro_user`.user_id='$user_id'
 
 		AND `contest_problem`.`contest_id`=$cid ORDER BY `contest_problem`.`num` 
                 ) problem
@@ -144,7 +173,7 @@
 				if (isset($_SESSION['user_id'])) 
 					$view_problemset[$cnt][0]=check_ac($cid,$cnt);
 				$view_problemset[$cnt][1]= "$row->pid Problem &nbsp;".(chr($cnt+ord('A')));
-				$view_problemset[$cnt][2]= "<a href='problem.php?cid=$cid&pid=$cnt'>$row->title</a>";
+				$view_problemset[$cnt][2]= "<a href='problem.php?cid=$cid&pid=$row->pnum'>$row->title</a>";
 				$view_problemset[$cnt][3]=$row->source ;
 				$view_problemset[$cnt][4]=$row->accepted ;
 				$view_problemset[$cnt][5]=$row->submit ;

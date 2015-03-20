@@ -14,6 +14,7 @@ if (isset($_POST['syear']))
         $password=mysql_real_escape_string($_POST['password']);
         $description=mysql_real_escape_string($_POST['description']);
         $private=mysql_real_escape_string($_POST['private']);
+        $pro_amount = mysql_real_escape_string($_POST['pro_amount']);
         if (get_magic_quotes_gpc ()) {
       		  $title = stripslashes ( $title);
 	          $password = stripslashes ( $password);
@@ -30,7 +31,7 @@ if (isset($_POST['syear']))
 
 	$cid=intval($_POST['cid']);
 	if(!(isset($_SESSION["m$cid"])||isset($_SESSION['administrator']))) exit();
-	$sql="UPDATE `contest` set `title`='$title',description='$description',`start_time`='$starttime',`end_time`='$endtime',`private`='$private',`langmask`=$langmask  ,password='$password' WHERE `contest_id`=$cid";
+	$sql="UPDATE `contest` set `pro_amount`='$pro_amount',`title`='$title',description='$description',`start_time`='$starttime',`end_time`='$endtime',`private`='$private',`langmask`=$langmask  ,password='$password' WHERE `contest_id`=$cid";
 	//echo $sql;
 	mysql_query($sql) or die(mysql_error());
 	$sql="DELETE FROM `contest_problem` WHERE `contest_id`=$cid";
@@ -85,6 +86,7 @@ if (isset($_POST['syear']))
 	$password=$row['password'];
 	$langmask=$row['langmask'];
 	$description=$row['description'];
+	$pro_amount=$row['pro_amount'];
 	$title=htmlspecialchars($row['title']);
 	mysql_free_result($result);
 	$plist="";
@@ -133,6 +135,7 @@ Public/Private:<select name=private>
 </select>
 Password:<input type=text name=password value="<?php echo htmlentities($password,ENT_QUOTES,'utf-8')?>">
 <br>Problems:<input class=input-xxlarge type=text size=60 name=cproblem value='<?php echo $plist?>'>
+<br>随机选题数量:<input class=input-xxlarge type=text size=20 name=pro_amount value='<?php echo $pro_amount?>'>
 
  Language:<select name="lang[]"  multiple="multiple"    style="height:220px">
 <?php
