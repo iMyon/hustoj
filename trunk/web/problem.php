@@ -59,7 +59,8 @@ if (isset($_GET['id'])){
                 // started
                 $user_id=$_SESSION["user_id"];
                 $sql="SELECT * FROM `problem` WHERE `defunct`='N' AND `problem_id`=(
-                        SELECT `contest_problem`.`problem_id` FROM `contest_problem`,`con_pro_user` WHERE `contest_id`=$cid AND `num`=$pid AND `contest_problem`.`problem_id`=`con_pro_user`.`problem_id` AND `con_pro_user`.`user_id`='$user_id'
+                        SELECT `contest_problem`.`problem_id` FROM `contest_problem`,`con_pro_user` WHERE `contest_problem`.`contest_id`=$cid AND `num`=$pid AND `contest_problem`.`problem_id`=`con_pro_user`.`problem_id` AND `con_pro_user`.`user_id`='$user_id'
+                        AND `con_pro_user`.`contest_id`='$cid'
                         )";
         }
         // public

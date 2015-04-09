@@ -1,0 +1,7 @@
+.active:before {
+    content: " ";
+    position: absolute;
+    border-left: 3px solid #21CCFC;
+    height: 100%;
+    left: 0px;
+}

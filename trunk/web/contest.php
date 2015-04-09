@@ -68,10 +68,12 @@
 	}
 	return $result;
 }
+//分配题目
 function assign_pros($user_id){
   if (isset($user_id) && isset($_GET['cid'])) {
     $cid = $_GET['cid'];
-    $sql = "SELECT count(*) FROM `con_pro_user` where user_id='$user_id'";
+    $sql = "SELECT count(*) FROM `con_pro_user`,`contest` where user_id='$user_id' AND `contest`.`contest_id`=`con_pro_user`.`contest_id` 
+            AND `contest`.`contest_id`='$cid'";
     $row = mysql_fetch_array( mysql_query($sql) );
     //如果没有分配题目的话
     if(!$row[0]){
@@ -83,7 +85,7 @@ function assign_pros($user_id){
         $re = mysql_query($sql);
         while($row_problem = mysql_fetch_array($re)){
           //插入数据（分配题目）
-          $sql = "INSERT INTO `con_pro_user` (`problem_id`, `user_id`) VALUES ($row_problem[0], '$user_id')";
+          $sql = "INSERT INTO `con_pro_user` (`contest_id`,`problem_id`, `user_id`) VALUES ($cid, $row_problem[0], '$user_id')";
           mysql_query($sql);
         }
       }
@@ -153,6 +155,7 @@ assign_pros($_SESSION["user_id"]);
     AND `contest_problem`.problem_id=`con_pro_user`.problem_id
 
     AND `con_pro_user`.user_id='$user_id'
+    AND `con_pro_user`.contest_id='$cid'
 
 		AND `contest_problem`.`contest_id`=$cid ORDER BY `contest_problem`.`num` 
                 ) problem
