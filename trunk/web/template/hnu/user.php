@@ -18,15 +18,15 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="row">
-          <div class="col-sm-3 col-md-2 sidebar">
+          <div class="nav-left col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
               <li class="<?=$action?'':'active' ?>"><a href="user.php">基本信息<span class="sr-only">(current)</span></a></li>
-              <li class="<?=$action=='exam'?'active':'' ?>"><a href="user.php?act=exam">考试安排</a></li>
+              <li class="<?=$action=='exam'?'active':'' ?>"><a href="user.php?act=exam">我的考试</a></li>
               <li class="<?=$action=='view_result'?'active':'' ?>"><a href="user.php?act=view_result">查看成绩</a></li>
               <li class="<?=$action=='solved_problem'?'active':'' ?>"><a href="user.php?act=solved_problem">已解决问题列表</a></li>
             </ul>
           </div>
-          <div class="col-sm-9 main">
+          <div class="content col-sm-9 main">
             <?php if($action=="exam"){/*考场安排*/ ?>
             <table class="table table-striped table-hover table-bordered" id="statics">
               <tr>
@@ -46,6 +46,25 @@
               }?>
             </table>
             <?php }else if($action=="view_result"){/*查看成绩*/?>
+            <table class="table table-striped table-hover table-bordered" id="statics">
+              <tr>
+                <th>考试名称</th>
+                <th>考题总数</th>
+                <th>答题正确数</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+              </tr>
+              <?php
+                foreach($exam_results as $row){
+                echo "<tr>
+                        <td><a href='contest.php?cid=".$row->contest_id."'>".$row->title."</a></td>
+                        <td>". ($row->pro_amount?$row->pro_amount:$row->total) ."</td>
+                        <td>".$row->suc."</td>
+                        <td>".$row->start_time."</td>
+                        <td>".$row->end_time."</td>
+                      </tr>";
+              }?>
+            </table>
             <?php }else if($action=="solved_problem"){/*已解决问题*/?>
             <table class="table table-striped table-hover table-bordered" id="statics">
               <tr>

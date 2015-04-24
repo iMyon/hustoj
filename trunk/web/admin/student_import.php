@@ -14,9 +14,10 @@ if (!(isset($_SESSION['administrator']))){
    $maxfile=min(ini_get("upload_max_filesize"),ini_get("post_max_size"));
 
 ?>
-Import FPS data ,please make sure you file is smaller than [<?php echo $maxfile?>] <br/>
-or set upload_max_filesize and post_max_size in PHP.ini<br/>
-if you fail on import big files[10M+],try enlarge your [memory_limit]  setting in php.ini.<br>
+从excel表导入用户数据，请确保上传的文件大小小于[<?php echo $maxfile?>]<br/>
+如果需要上传更大的文件，请进行分割，或者修改服务器的php.ini文件的post_max_size。<br/>
+请确保excel表第一列为学号，第二列为学生姓名，并确保excel表的格式为excel2007。
+
 <?php 
     $show_form=true;
    if(!isset($OJ_SAE)||!$OJ_SAE){

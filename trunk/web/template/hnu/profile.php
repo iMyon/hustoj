@@ -22,7 +22,7 @@ header("Pragma: no-cache");
 	$profile='';
 		if (isset($_SESSION['user_id'])){
 				$sid=$_SESSION['user_id'];
-				$profile.= "<i class=icon-user></i><li><a href=./modifypage.php>$MSG_USERINFO</a></li>&nbsp;<li><a href='./userinfo.php?user=$sid'><span id=red>$sid</span></a></li>";
+				$profile.= "<i class=icon-user></i><li><a href=./modifypage.php>$MSG_USERINFO</a></li>&nbsp;<li><a href='./user.php'><span id=red>$sid</span></a></li>";
 				$mail=checkmail();
 				if ($mail)
 					$profile.= "&nbsp;<i class=icon-envelope></i><li><a href=./mail.php>$mail</a></li>";

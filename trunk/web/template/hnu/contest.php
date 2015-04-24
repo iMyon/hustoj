@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo $OJ_NAME?></title>  
+    <title><?php echo $view_title."   | ".$OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
 
@@ -27,29 +27,29 @@
       <div class="jumbotron">
 <center>
 <div>
-<h3>Contest<?php echo $view_cid?> - <?php echo $view_title ?></h3>
+<h3><?php echo $view_title ?></h3>
 <p><?php echo $view_description?></p>
-<br>Start Time: <font color=#993399><?php echo $view_start_time?></font>
-End Time: <font color=#993399><?php echo $view_end_time?></font><br>
-Current Time: <font color=#993399><span id=nowdate > <?php echo date("Y-m-d H:i:s")?></span></font>
-Status:<?php
+<br>开始时间: <font color=#993399><?php echo $view_start_time?></font><br/>
+结束时间: <font color=#993399><?php echo $view_end_time?></font><br>
+当前时间: <font color=#993399><span id=nowdate > <?php echo date("Y-m-d H:i:s")?></span></font><br/>
+状态:<?php
 if ($now>$end_time)
-echo "<span class=red>Ended</span>";
+echo "<span class=red>已结束</span>";
 else if ($now<$start_time)
-echo "<span class=red>Not Started</span>";
+echo "<span class=red>还没开始</span>";
 else
-echo "<span class=red>Running</span>";
+echo "<span class=red>正在进行</span>";
 ?>&nbsp;&nbsp;
 <?php
 if ($view_private=='0')
-echo "<span class=blue>Public</font>";
+echo "<span class=blue>公开</font>";
 else
-echo "&nbsp;&nbsp;<span class=red>Private</font>";
+echo "&nbsp;&nbsp;<span class=red>私有</font>";
 ?>
 <br>
-[<a href='status.php?cid=<?php echo $view_cid?>'>Status</a>]
-[<a href='contestrank.php?cid=<?php echo $view_cid?>'>Standing</a>]
-[<a href='conteststatistics.php?cid=<?php echo $view_cid?>'>Statistics</a>]
+[<a href='status.php?cid=<?php echo $view_cid?>'>状态</a>]
+[<a href='contestrank.php?cid=<?php echo $view_cid?>'>排名</a>]
+[<a href='conteststatistics.php?cid=<?php echo $view_cid?>'>分析</a>]
 </div>
 <table id='problemset' class='table table-striped'  width='90%'>
 <thead>

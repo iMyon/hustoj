@@ -7,7 +7,7 @@ if (!(isset($_SESSION['administrator']))){
   exit(1);
 }
 ?>
-Import Free Problem Set ... <br>
+正在从excel表中导入用户 ... <br>
 
 <?php
 function getValue($Node, $TagName) {

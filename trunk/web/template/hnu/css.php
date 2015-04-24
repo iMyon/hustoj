@@ -6,5 +6,3 @@
 <link rel="stylesheet" href="<?php echo "template/$OJ_TEMPLATE/"?>bootstrap-theme.min.css">
 
 <link rel="stylesheet" href="<?php echo "template/$OJ_TEMPLATE/"?>local.css">
-
-<link rel="stylesheet" href="<?php echo "template/$OJ_TEMPLATE/"?>hnu.css">

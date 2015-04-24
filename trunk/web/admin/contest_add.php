@@ -21,6 +21,7 @@ $description="";
         $private=$_POST['private'];
         $password=$_POST['password'];
         $description=$_POST['description'];
+        $pro_amount = mysql_real_escape_string($_POST['pro_amount']);
         if (get_magic_quotes_gpc ()){
                 $title = stripslashes ($title);
                 $private = stripslashes ($private);
@@ -42,8 +43,8 @@ $description="";
 $langmask=((1<<count($language_ext))-1)&(~$langmask);
 	//echo $langmask;	
 	
-        $sql="INSERT INTO `contest`(`title`,`start_time`,`end_time`,`private`,`langmask`,`description`,`password`)
-                VALUES('$title','$starttime','$endtime','$private',$langmask,'$description','$password')";
+        $sql="INSERT INTO `contest`(`title`,`start_time`,`end_time`,`private`,`langmask`,`description`,`password`, `pro_amount`)
+                VALUES('$title','$starttime','$endtime','$private',$langmask,'$description','$password', '$pro_amount')";
 	echo $sql;
 	mysql_query($sql) or die(mysql_error());
 	$cid=mysql_insert_id();
@@ -160,6 +161,7 @@ $lang_count=count($language_ext);
         </select>
 	<?php require_once("../include/set_post_key.php");?>
 	<br>Problems:<input class=input-xxlarge type=text size=60 name=cproblem value="<?php echo isset($plist)?$plist:""?>">
+  <br>随机选题数量:<input class=input-xxlarge type=text size=20 name=pro_amount value='<?php echo $pro_amount?>'>
 	<br>
 	<p align=left>Description:<br><!--<textarea rows=13 name=description cols=80></textarea>-->
 

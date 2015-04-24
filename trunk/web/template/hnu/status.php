@@ -131,12 +131,12 @@ $cnt=1-$cnt;
 </table>
 </div>
 <div id=center>
-<?php echo "[<a href=status.php?".$str2.">Top</a>]&nbsp;&nbsp;";
+<?php echo "[<a href=status.php?".$str2.">首页</a>]&nbsp;&nbsp;";
 if (isset($_GET['prevtop']))
-echo "[<a href=status.php?".$str2."&top=".$_GET['prevtop'].">Previous Page</a>]&nbsp;&nbsp;";
+echo "[<a href=status.php?".$str2."&top=".$_GET['prevtop'].">上一页</a>]&nbsp;&nbsp;";
 else
-echo "[<a href=status.php?".$str2."&top=".($top+20).">Previous Page</a>]&nbsp;&nbsp;";
-echo "[<a href=status.php?".$str2."&top=".$bottom."&prevtop=$top>Next Page</a>]";
+echo "[<a href=status.php?".$str2."&top=".($top+20).">上一页</a>]&nbsp;&nbsp;";
+echo "[<a href=status.php?".$str2."&top=".$bottom."&prevtop=$top>下一页</a>]";
 ?>
 </div>
 

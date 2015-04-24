@@ -55,7 +55,7 @@
       <label for="section-2"><span>前台管理</span></label>
       <div class="content">
         <ul>
-          <li><a class='' href="watch.php" target="main"><b><?php echo $MSG_SEEOJ?></b></a></li>
+          <li><a class='' href="/" target="main"><b><?php echo $MSG_SEEOJ?></b></a></li>
           <?php if (isset($_SESSION['administrator'])){
             ?>
             <li><a class='' href="news_add_page.php" target="main"><b><?php echo $MSG_ADD.$MSG_NEWS?></b></a></li>
@@ -66,6 +66,21 @@
           <li><a class='' href="setmsg.php" target="main"><b><?php echo $MSG_SETMESSAGE?></b></a></li>
           <?php }
           ?>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <input type="radio" name="accordion-1" id="section-3" value="toggle"/>
+      <label for="section-3"><span>考场管理</span></label>
+      <div class="content">
+        <ul>
+          <?php if (isset($_SESSION['administrator'])||isset( $_SESSION['password_setter'] )){
+          ?>
+          <li><a class='' href="exam_arrange_page.php" target="main"><b>分配考场</b></a></li>
+          <li><a class='' href="exam_room_add_page.php" target="main"><b>添加考场</b></a></li>
+          <li><a class='' href="seat_add_page.php" target="main"><b>添加座位</b></a></li>
+          <!-- <li><a class='' href="exam_arrange.php" target="main"><b>考场安排</b></a></li> -->
+          <?php } ?>
         </ul>
       </div>
     </div>
