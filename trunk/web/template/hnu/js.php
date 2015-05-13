@@ -3,5 +3,7 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="<?php echo "template/$OJ_TEMPLATE/"?>bootstrap.min.js"></script>
+<script src="include/online.js" type="text/javascript"></script>
+<script type="text/javascript">online();</script>
 
 

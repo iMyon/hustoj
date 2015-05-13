@@ -79,6 +79,7 @@
           <li><a class='' href="exam_arrange_page.php" target="main"><b>分配考场</b></a></li>
           <li><a class='' href="exam_room_add_page.php" target="main"><b>添加考场</b></a></li>
           <li><a class='' href="seat_add_page.php" target="main"><b>添加座位</b></a></li>
+          <li><a class='' href="online_page.php" target="main"><b>在线状态</b></a></li>
           <!-- <li><a class='' href="exam_arrange.php" target="main"><b>考场安排</b></a></li> -->
           <?php } ?>
         </ul>
