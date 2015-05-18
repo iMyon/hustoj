@@ -1,8 +1,8 @@
 <?php @session_start();
 	ini_set("display_errors","Off");
-static 	$DB_HOST="localhost";
+static 	$DB_HOST="49.123.89.1";
 static 	$DB_NAME="jol";
-static 	$DB_USER="root";
+static 	$DB_USER="judge";
 static 	$DB_PASS="ibmx346";
 	// connect db 
 static 	$OJ_NAME="HNUOJ";

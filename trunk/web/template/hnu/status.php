@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo $OJ_NAME?></title>  
+    <title><?php echo $view_title."   | ".$OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
 
@@ -96,7 +96,7 @@ echo "<input type=submit class='input' value='$MSG_SEARCH'></form>";
 ?>
 </div>
 <div id=center>
-<table id=result-tab class="table table-striped content-box-header" align=center width=80%>
+<table id=result-tab class="table table-striped table-bordered content-box-header" align=center width=80%>
 <thead>
 <tr class='toprow' >
 <th ><?php echo $MSG_RUNID?>

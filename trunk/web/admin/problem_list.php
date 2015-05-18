@@ -47,11 +47,11 @@ $result=mysql_query($sql) or die(mysql_error());
 <?php
 echo "<center><table class='table table-striped' width=90% border=1>";
 echo "<form method=post action=contest_add.php>";
-echo "<tr><td colspan=7><input type=submit name='problem2contest' value='CheckToNewContest'>";
-echo "<tr><td>PID<td>Title<td>Date";
+echo "<tr><td colspan=7><input type=submit name='problem2contest' value='使用选中的问题组织考试'>";
+echo "<tr><td>PID<td>标题<td>日期";
 if(isset($_SESSION['administrator'])||isset($_SESSION['problem_editor'])){
-        if(isset($_SESSION['administrator']))   echo "<td>Status<td>Delete";
-        echo "<td>Edit<td>TestData</tr>";
+        if(isset($_SESSION['administrator']))   echo "<td>状态<td>删除";
+        echo "<td>编辑<td>测试数据</tr>";
 }
 for (;$row=mysql_fetch_object($result);){
         echo "<tr>";
@@ -77,7 +77,7 @@ for (;$row=mysql_fetch_object($result);){
         }
         echo "</tr>";
 }
-echo "<tr><td colspan=7><input type=submit name='problem2contest' value='CheckToNewContest'>";
+echo "<tr><td colspan=7><input type=submit name='problem2contest' value='使用选中的问题组织考试'>";
 echo "</tr></form>";
 echo "</table></center>";
 require("../oj-footer.php");

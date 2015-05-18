@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Navbar Template for Bootstrap</title>  
+    <title>用户登录</title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
 
@@ -21,13 +21,44 @@
 
   <body>
 
-    <div class="container">
+<div class="container">
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-	 <form action=login.php method=post>
+  <div class="jumbotron">
+    <form class="form-horizontal" role="form" action="login.php" method="post">
+     <div class="form-group">
+        <label for="firstname" class="col-sm-2 control-label">用户名（学号）</label>
+        <div class="col-sm-4">
+           <input type="text" class="form-control" id="firstname" 
+              placeholder="请输入用户名（学号）" name="user_id">
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-4">
+           <input name="password" type="password" class="form-control" id="lastname" 
+              placeholder="请输入密码">
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">验证码</label>
+        <div class="col-sm-2">
+           <input type="text" class="form-control" id="lastname" name="vcode"
+              placeholder="请输入验证码">
+        </div>
+        <div class="col-sm-2">
+          <img alt="click to change" src=vcode.php onclick="this.src='vcode.php?<?php echo rand();?>#'+Math.random()">
+        </div>
+     </div>
+     <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+           <button name="submit" type="submit" class="btn btn-default">登录</button>
+        </div>
+     </div>
+  </form>
+<!--     <form action=login.php method=post>
 <center>
-<table width=480 algin=center>
+<table width=480 algin=center class="table table-striped table-hover table-bordered">
 <tr><td width=240><?php echo $MSG_USER_ID?>:<td width=200><input style="height:24px" name="user_id" type="text" size=20></tr>
 <tr><td><?php echo $MSG_PASSWORD?>:<td><input name="password" type="password" size=20 style="height:24px"></tr>
 <?php if($OJ_VCODE){?>
@@ -40,11 +71,11 @@
 </tr>
 </table>
 <center>
-</form>
-      </div>
+</form> -->
+   </div>
 
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript

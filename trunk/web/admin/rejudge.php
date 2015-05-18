@@ -28,17 +28,17 @@ if (!(isset($_SESSION['administrator']))){
 	}
 }
 ?>
-<b>Rejudge</b>
+<b>重判题目</b>
 	<ol>
-	<li>Problem
+	<li>Problem id
 	<form action='rejudge.php' method=post>
 		<input type=input name='rjpid'>	<input type='hidden' name='do' value='do'>
-		<input type=submit value=submit>
+		<input type=submit value=提交>
 		<?php require_once("../include/set_post_key.php");?>
 	</form>
-	<li>Solution
+	<li>Solution id
 	<form action='rejudge.php' method=post>
 		<input type=input name='rjsid'>	<input type='hidden' name='do' value='do'>
 		<input type=hidden name="postkey" value="<?php echo $_SESSION['postkey']?>">
-		<input type=submit value=submit>
+		<input type=submit value=提交>
 	</form>

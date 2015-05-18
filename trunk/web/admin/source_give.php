@@ -17,13 +17,13 @@ if (!(isset($_SESSION['administrator']))){
 }
 ?>
 <form action='source_give.php' method=post>
-	<b>Give source:</b><br />
-	From:<input type=text size=10 name="from" value="zhblue"><br />
-	To:<input type=text size=10 name="to" value="standard"><br />
-	start pid:<input type=text size=10 name="start"><br />
-	end pid:<input type=text size=10 name="end"><br />
+	<b>转移源码:</b><br />
+	从:<input type=text size=10 name="from" value="zhblue"><br />
+	到:<input type=text size=10 name="to" value="standard"><br />
+	开始问题id:<input type=text size=10 name="start"><br />
+	结束问题id:<input type=text size=10 name="end"><br />
 	<input type='hidden' name='do' value='do'>
 	
 	<?php require_once("../include/set_post_key.php");?>
-	<input type=submit value='GiveMySourceToHim'>
+	<input type=submit value='转移'>
 </form>

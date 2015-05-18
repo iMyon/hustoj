@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo $OJ_NAME?></title>  
+    <title><?php echo $view_title."   | ".$OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
 
@@ -25,10 +25,10 @@
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-<center>ServerTime:<span id=nowdate></span>
-<table class='table table-striped' width=90%>
+<center>服务器时间:<span id=nowdate></span>
+<table class='table table-striped table-bordered' width=90%>
 <thead>
-<tr class=toprow align=center><td width=10%>ID<td width=50%>Name<td width=30%>Status<td width=10%>Private<td>Creator</tr>
+<tr class=toprow align=center><td>ID<td>名称<td>状态<td>是否公开<td>举办者</tr>
 </thead>
 <tbody>
 <?php

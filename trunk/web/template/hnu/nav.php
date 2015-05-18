@@ -29,13 +29,13 @@
 	      </a></li>
                <li  class="active" ><a href="status.php?cid=<?php echo $cid?>">
 			<?php echo $MSG_STATUS?>
-	      </a></li>
+	      <!-- </a></li>
               <li  class="active" ><a href="contestrank.php?cid=<?php echo $cid?>">
 			<?php echo $MSG_RANKLIST?>
 	      </a></li>
               <li  class="active" ><a href="conteststatistics.php?cid=<?php echo $cid?>">
 			<?php echo $MSG_STATISTICS?>
-	      </a></li>
+	      </a></li> -->
 	      <li><a>]</a></li>
 <?php }?>
               <!--<li class="dropdown">

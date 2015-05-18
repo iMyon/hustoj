@@ -1,7 +1,7 @@
 <?php session_start();
 if (!isset($_SESSION['user_id'])){
 	require_once("oj-header.php");
-	echo "<a href='loginpage.php'>Please Login First!</a>";
+	echo "<a href='loginpage.php'>请先登录!</a>";
 	require_once("oj-footer.php");
 	exit(0);
 }
@@ -50,9 +50,9 @@ if (isset($_POST['id'])) {
 	$result=mysql_query($sql);
 	$rows_cnt=mysql_num_rows($result);
 	if ($rows_cnt!=1){
-		echo "You Can't Submit Now Because Your are not invited by the contest or the contest is not running!!";
+		$message = "无法提交代码！原因是你没有被邀请参加这场考试或者考试不在进行中。";
 		mysql_free_result($result);
-		require_once("oj-footer.php");
+    include("template/$OJ_TEMPLATE/submit.php");  
 		exit(0);
 	}else{
 		$row=mysql_fetch_array($result);

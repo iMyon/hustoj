@@ -5,7 +5,13 @@
 	require_once('./include/cache_start.php');
     require_once('./include/db_info.inc.php');
 	require_once('./include/setlang.php');
-	$view_title= "Welcome To Online Judge";
+	$view_title= "欢迎来到湖大编程能力测试系统";
+
+  //如果没有登录则调到登录页面
+  if(!$_SESSION["user_id"]){
+    header("location:loginpage.php");
+    // exit;
+  }
 	
 ///////////////////////////MAIN	
 	

@@ -5,8 +5,8 @@
         }
 
 
-echo "<title>Problem List</title>";
-echo "<center><h2>Contest List</h2></center>";
+echo "<title>考试列表</title>";
+echo "<center><h2>考试列表</h2></center>";
 require_once("../include/set_get_key.php");
 $sql="SELECT max(`contest_id`) as upid, min(`contest_id`) as btid  FROM `contest`";
 $page_cnt=50;
@@ -37,7 +37,7 @@ $result=mysql_query($sql) or die(mysql_error());
 
 <?php
 echo "<center><table class='table table-striped' width=90% border=1>";
-echo "<tr><td>ContestID<td>Title<td>StartTime<td>EndTime<td>Private<td>Status<td>Edit<td>Copy<td>Export<td>Logs";
+echo "<tr><td>考试ID<td>标题<td>开始时间<td>结束时间<td>是否公开<td>状态<td>编辑<td>复制<td>导出<td>日志";
 echo "</tr>";
 for (;$row=mysql_fetch_object($result);){
         echo "<tr>";

@@ -27,7 +27,8 @@
 		while ($result&&$row=mysql_fetch_assoc($result))
 			$_SESSION[$row['rightstr']]=true;
 		echo "<script language='javascript'>\n";
-		echo "history.go(-2);\n";
+    echo "location.href='contest.php';\n";
+		// echo "history.go(-2);\n";
 		echo "</script>";
 	}else{
 		

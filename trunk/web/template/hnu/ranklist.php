@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo $OJ_NAME?></title>  
+    <title><?php echo $view_title."   | ".$OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
 
@@ -25,7 +25,7 @@
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-	<table align=center width=90%>
+	<table class="table table-striped table-hover table-bordered" align=center width=90%>
 <thead>
 <tr><td colspan=3 align=left>
 <form action=userinfo.php>

@@ -46,20 +46,20 @@ echo "<span class=blue>公开</font>";
 else
 echo "&nbsp;&nbsp;<span class=red>私有</font>";
 ?>
-<br>
-[<a href='status.php?cid=<?php echo $view_cid?>'>状态</a>]
+<br><br>
+<!-- [<a href='status.php?cid=<?php echo $view_cid?>'>状态</a>]
 [<a href='contestrank.php?cid=<?php echo $view_cid?>'>排名</a>]
-[<a href='conteststatistics.php?cid=<?php echo $view_cid?>'>分析</a>]
+[<a href='conteststatistics.php?cid=<?php echo $view_cid?>'>分析</a>] -->
 </div>
-<table id='problemset' class='table table-striped'  width='90%'>
+<table id='problemset' class='table table-striped table-hover table-bordered'  width='90%'>
 <thead>
 <tr align=center class='toprow'>
-<td width='5'>
+<td>
 <td style="cursor:hand" onclick="sortTable('problemset', 1, 'int');" ><?php echo $MSG_PROBLEM_ID?>
-<td width='60%'><?php echo $MSG_TITLE?></td>
-<td width='10%'><?php echo $MSG_SOURCE?></td>
-<td style="cursor:hand" onclick="sortTable('problemset', 4, 'int');" width='5%'><?php echo $MSG_AC?></td>
-<td style="cursor:hand" onclick="sortTable('problemset', 5, 'int');" width='5%'><?php echo $MSG_SUBMIT?></td>
+<td ><?php echo $MSG_TITLE?></td>
+<td ><?php echo $MSG_SOURCE?></td>
+<td style="cursor:hand" onclick="sortTable('problemset', 4, 'int');" ><?php echo $MSG_AC?></td>
+<td style="cursor:hand" onclick="sortTable('problemset', 5, 'int');" ><?php echo $MSG_SUBMIT?></td>
 </tr>
 </thead>
 <tbody>

@@ -38,10 +38,7 @@
           if (isset($_SESSION['administrator'])||isset($_SESSION['contest_creator'])){
           ?>
           <li><a class='' href="contest_list.php" target="main"><b><?php echo $MSG_CONTEST.$MSG_LIST?></b></a></li>
-          <?php }
-          if (isset($_SESSION['administrator'])){
-          ?>
-          <li><a class='' href="team_generate.php" target="main"><b><?php echo $MSG_TEAMGENERATOR?></b></a></li>
+
           <?php }
           if (isset($_SESSION['administrator'])){
           ?><li><a class='' href="rejudge.php" target="main"><b><?php echo $MSG_REJUDGE?></b></a></li>
@@ -86,8 +83,8 @@
       </div>
     </div>
     <div class="section">
-      <input type="radio" name="accordion-1" id="section-3" value="toggle"/>
-      <label for="section-3"><span>权限管理</span></label>
+      <input type="radio" name="accordion-1" id="section-4" value="toggle"/>
+      <label for="section-4"><span>权限管理</span></label>
       <div class="content">
         <ul>
           <?php if (isset($_SESSION['administrator'])||isset( $_SESSION['password_setter'] )){
@@ -104,8 +101,8 @@
       </div>
     </div>
     <div class="section">
-      <input type="radio" name="accordion-1" id="section-4" value="toggle"/>
-      <label for="section-4"><span>导入导出</span></label>
+      <input type="radio" name="accordion-1" id="section-5" value="toggle"/>
+      <label for="section-5"><span>导入导出</span></label>
       <div class="content">
         <ul>
           <?php if (isset($_SESSION['administrator'])){
@@ -119,8 +116,8 @@
       </div>
     </div>
     <div class="section">
-      <input type="radio" name="accordion-1" id="section-5" value="toggle"/>
-      <label for="section-5"><span>数据库管理</span></label>
+      <input type="radio" name="accordion-1" id="section-6" value="toggle"/>
+      <label for="section-6"><span>数据库管理</span></label>
       <div class="content">
         <ul>
           <?php if (isset($_SESSION['administrator'])){
@@ -131,8 +128,8 @@
       </div>
     </div>
   	<div class="section">
-      <input type="radio" name="accordion-1" id="section-6" value="toggle"/>
-      <label for="section-6"><span>其他</span></label>
+      <input type="radio" name="accordion-1" id="section-7" value="toggle"/>
+      <label for="section-7"><span>其他</span></label>
       <div class="content">
         <ul>
           <?php if (isset($OJ_ONLINE)&&$OJ_ONLINE){

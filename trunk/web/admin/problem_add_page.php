@@ -18,15 +18,15 @@ if (!(isset($_SESSION['administrator'])||isset($_SESSION['problem_editor']))){
 <?php
 include_once("../fckeditor/fckeditor.php") ;
 ?>
-<h1 >Add New problem</h1>
+<h1 >添加问题</h1>
 
 <form method=POST action=problem_add.php>
 <input type=hidden name=problem_id value="New Problem">
-<p align=left>Problem Id:&nbsp;&nbsp;New Problem</p>
-<p align=left>Title:<input class="input input-xxlarge" type=text name=title size=71></p>
-<p align=left>Time Limit:<input type=text name=time_limit size=20 value=1>S</p>
-<p align=left>Memory Limit:<input type=text name=memory_limit size=20 value=128>MByte</p>
-<p align=left>Description:<br><!--<textarea rows=13 name=description cols=80></textarea>-->
+<p align=left>问题 Id:&nbsp;&nbsp;New Problem</p>
+<p align=left>标题:<input class="input input-xxlarge" type=text name=title size=71></p>
+<p align=left>时间限制:<input type=text name=time_limit size=20 value=1>S</p>
+<p align=left>内存限制:<input type=text name=memory_limit size=20 value=128>MByte</p>
+<p align=left>描述:<br><!--<textarea rows=13 name=description cols=80></textarea>-->
 
 <?php
 $description = new FCKeditor('description') ;
@@ -83,8 +83,8 @@ $output->Create() ;
 ?>
 </p>
 <p>SpecialJudge: N<input type=radio name=spj value='0' checked>Y<input type=radio name=spj value='1'></p>
-<p align=left>Source:<br><textarea name=source rows=1 cols=70></textarea></p>
-<p align=left>contest:
+<p align=left>来源:<br><textarea name=source rows=1 cols=70></textarea></p>
+<p align=left>考试:
 	<select  name=contest_id>
 <?php $sql="SELECT `contest_id`,`title` FROM `contest` WHERE `start_time`>NOW() order by `contest_id`";
 $result=mysql_query($sql);
@@ -99,7 +99,7 @@ if (mysql_num_rows($result)==0){
 </p>
 <div align=center>
 <?php require_once("../include/set_post_key.php");?>
-<input type=submit value=Submit name=submit>
+<input type=submit value="提交" name=submit>
 </div></form>
 <p>
 <?php require_once("../oj-footer.php");?>

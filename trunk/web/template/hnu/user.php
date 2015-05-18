@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title><?php echo $OJ_NAME?></title>  
+  <title><?php echo $view_title."   | ".$OJ_NAME?></title>  
   <?php include("template/$OJ_TEMPLATE/css.php");?>
   <script type="text/javascript" src="include/wz_jsgraphics.js"></script>
   <script type="text/javascript" src="include/pie.js"></script>

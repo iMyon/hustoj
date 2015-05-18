@@ -2,8 +2,8 @@
 	$MSG_FAQ="常见问答";
 	$MSG_BBS="讨论版";
 	$MSG_HOME="主页";
-	$MSG_PROBLEMS="问题";
-	$MSG_STATUS="状态";
+	$MSG_PROBLEMS="问题列表";
+	$MSG_STATUS="编译状态";
 	$MSG_RANKLIST="排名";
 	$MSG_CONTEST="考试&作业";
   $MSG_RECENT_CONTEST="名校联赛";

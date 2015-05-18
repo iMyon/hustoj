@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo $OJ_NAME?></title>  
+    <title><?php echo $view_title."   | ".$OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
 
@@ -124,16 +124,16 @@ $cnt=1-$cnt;
 </table>
 </div>
 <div id=center>
-<?php echo "[<a href=status.php?".$str2.">Top</a>]&nbsp;&nbsp;";
+<?php echo "[<a href=status.php?".$str2.">首页</a>]&nbsp;&nbsp;";
 if (isset($_GET['prevtop']))
-echo "[<a href=status.php?".$str2."&top=".$_GET['prevtop'].">Previous Page</a>]&nbsp;&nbsp;";
+echo "[<a href=status.php?".$str2."&top=".$_GET['prevtop'].">上一页</a>]&nbsp;&nbsp;";
 else
-echo "[<a href=status.php?".$str2."&top=".($top+20).">Previous Page</a>]&nbsp;&nbsp;";
-echo "[<a href=status.php?".$str2."&top=".$bottom."&prevtop=$top>Next Page</a>]";
+echo "[<a href=status.php?".$str2."&top=".($top+20).">上一页</a>]&nbsp;&nbsp;";
+echo "[<a href=status.php?".$str2."&top=".$bottom."&prevtop=$top>下一页</a>]";
 ?>
 </div>
 <div id=foot>
-<?php require_once("oj-footer.php");?>
+<!-- <?php require_once("oj-footer.php");?> -->
 </div><!--end foot-->
 </div><!--end main-->
 </div><!--end wrapper-->
