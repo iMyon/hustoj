@@ -52,7 +52,7 @@ if($room && $exam && $exam>0){
   // @die($values);
   if($values){
     $sql = "INSERT INTO exam_arrange (contest_id,user_id,seat_id) values $values";
-    @die($sql);
+    // @die($sql);
     @mysql_query ( $sql ) or die ( mysql_error () );
   }
   //如果考场座位不够则提示

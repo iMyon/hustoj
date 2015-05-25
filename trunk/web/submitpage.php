@@ -60,11 +60,13 @@ $view_sample_output="3";
 	
  }
  
+
+if(isset($_COOKIE['lastlang'])) 
+    $lastlang=intval($_COOKIE['lastlang']);
+  else 
+    $lastlang=0;
+
 if(!$view_src){
-	if(isset($_COOKIE['lastlang'])) 
-		$lastlang=intval($_COOKIE['lastlang']);
-	else 
-		$lastlang=0;
    $template_file="$OJ_DATA/$problem_id/template.".$language_ext[$lastlang];
    if(file_exists($template_file)){
 	$view_src=file_get_contents($template_file);
@@ -74,7 +76,11 @@ if(!$view_src){
 
 
 /////////////////////////Template
-require("template/".$OJ_TEMPLATE."/submitpage.php");
+//如果是c/c++/java则调用ace编辑器，否则掉原来的
+if(($lastlang==0 || $lastlang==1 || $lastlang==3) && $OJ_TEMPLATE=="hnu")
+  require("template/".$OJ_TEMPLATE."/submitpage_ace.php");
+else
+  require("template/".$OJ_TEMPLATE."/submitpage.php");
 /////////////////////////Common foot
 if(file_exists('./include/cache_end.php'))
 	require_once('./include/cache_end.php');

@@ -174,9 +174,31 @@ $fck_description->Value = $description ;
 $fck_description->Create() ;
 
 ?>
+<?php
+
+  $sql = "select * from users"; 
+  $result=mysql_query($sql) or die(mysql_error());
+  $users = array();
+  while($row = mysql_fetch_object($result)){
+    $users[] = $row;
+  }
+  // @print_r($users);
+  // exit();
+  // print_r($row->number);
+  mysql_free_result($result); 
+?>
+
 	可以进行考试的用户列表:<textarea name="ulist" rows="20" cols="20"></textarea>
 	<br />
 	*可以将学生学号从Excel整列复制过来，然后要求他们用学号做UserID注册,就能进入Private的比赛作为作业和测验。
+
+  选择学生：<select name="students[]" multiple="multiple"    style="height:220px">
+      <?php foreach ($users as $row) {
+        $user_id = $row->user_id;
+        echo "<option value='$user_id' selected>$user_id</option>";
+      }
+      ?>
+  </select>
 	<p><input type=submit value="提交" name=submit><input type=reset value="重置" name=reset></p>
 	</form>
 <?php }

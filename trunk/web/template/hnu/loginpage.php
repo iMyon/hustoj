@@ -47,7 +47,7 @@
               placeholder="请输入验证码">
         </div>
         <div class="col-sm-2">
-          <img alt="click to change" src=vcode.php onclick="this.src='vcode.php?<?php echo rand();?>#'+Math.random()">
+          <img alt="click to change" src="vcode.php?_r=<?php echo rand();?>" onclick="this.src='vcode.php?_r=<?php echo rand();?>#'+Math.random()">
         </div>
      </div>
      <div class="form-group">

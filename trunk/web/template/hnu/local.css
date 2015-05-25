@@ -1,3 +1,9 @@
+/*.navbar .navbar-nav .dropdown-menu li a{
+  color: #000;
+}*/
+.rightbody,.allContent{
+  width:auto !important;
+}
 .toprow{
    /*background-color:#9bc7ea;*/
    color:#222222;

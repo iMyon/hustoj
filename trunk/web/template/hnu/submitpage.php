@@ -8,8 +8,8 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo $OJ_NAME?></title>  
-    <?php include("template/$OJ_TEMPLATE/css.php");?>	    
+    <title><?php echo $view_title." | ".$OJ_NAME?></title>  
+    <?php include("template/$OJ_TEMPLATE/css.php");?>     
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -22,7 +22,7 @@
   <body>
 
     <div class="container">
-    <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
+    <?php include("template/$OJ_TEMPLATE/nav.php");?>     
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
  <center>
@@ -107,7 +107,7 @@ echo"<option value=$i ".( $lastlang==$i?"selected":"").">
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <?php include("template/$OJ_TEMPLATE/js.php");?>	    
+    <?php include("template/$OJ_TEMPLATE/js.php");?>      
  <script>
 var sid=0;
 var i=0;
@@ -147,11 +147,11 @@ var tag="span";
 if(ra[0]<4) tag="span disabled=true";
 else tag="a";
 {
-	if(ra[0]==11)
-	
-	tb.innerHTML="<"+tag+" href='ceinfo.php?sid="+solution_id+"' class='badge badge-info' target=_blank>"+judge_result[ra[0]]+"</"+tag+">";
-	else
-	tb.innerHTML="<"+tag+" href='reinfo.php?sid="+solution_id+"' class='badge badge-info' target=_blank>"+judge_result[ra[0]]+"</"+tag+">";
+  if(ra[0]==11)
+  
+  tb.innerHTML="<"+tag+" href='ceinfo.php?sid="+solution_id+"' class='badge badge-info' target=_blank>"+judge_result[ra[0]]+"</"+tag+">";
+  else
+  tb.innerHTML="<"+tag+" href='reinfo.php?sid="+solution_id+"' class='badge badge-info' target=_blank>"+judge_result[ra[0]]+"</"+tag+">";
 }
 if(ra[0]<4)tb.innerHTML+=loader;
 tb.innerHTML+="Memory:"+ra[1]+"kb&nbsp;&nbsp;";
@@ -231,7 +231,7 @@ function reloadtemplate(lang){
    document.cookie="lastlang="+lang.value;
    //alert(document.cookie);
    if(confirm("Do you want to reload template?\n You may lost all code that you've typed here!"))
-	document.location.reload();
+  document.location.reload();
 }
 </script>
   </body>

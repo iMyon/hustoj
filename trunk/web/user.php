@@ -50,17 +50,24 @@ if($action == "exam"){
 }
 //查看成绩
 else if($action == "view_result"){
-  $sql = "SELECT contest.contest_id,contest.title,contest.pro_amount,count( DISTINCT solution.solution_id ) as suc,count(contest_problem.problem_id) as total,contest.start_time,contest.end_time
+  $sql = "SELECT contest.contest_id,contest.title,contest.pro_amount,count(1) as total,contest.start_time,contest.end_time
           FROM  contest,solution,contest_problem
           WHERE contest.contest_id=solution.contest_id
                 AND contest.contest_id=contest_problem.contest_id
                 AND solution.user_id='$user'
-                AND solution.result=4
           group by solution.contest_id
   ";
   $result=mysql_query($sql) or die(mysql_error());
   $exam_results = array();
   while($row = mysql_fetch_object($result)){
+    //统计result是4的作为正确
+    $contest_id = $row -> contest_id;
+    $sql = "SELECT count(1)
+            FROM solution
+            WHERE result=4
+                AND contest_id='$contest_id'";
+    $row_ = mysql_fetch_array( mysql_query($sql) );
+    $row->suc = $row_[0];
     $exam_results[] = $row;
   }
   // print_r($row->number);
