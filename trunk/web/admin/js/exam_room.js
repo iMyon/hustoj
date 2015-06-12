@@ -15,8 +15,10 @@ function setSeatTable(){
     if(resjson.error == 0 && resjson.seats){
       var seats = resjson.seats;
       var html = "";
-      jQuery.each(seats, function(i, val) {  
-          html = html + "<tr><td>"+val+"</td><td></td></tr>"
+      jQuery.each(seats, function(id, name) {  
+          html = html + "<tr><td>"+name+"</td>"
+                +"<td><a id='seat_edit' href='seat_edit_page.php?id='"+id+">编辑</a><a id='seat_delete' href='#' onclick='delete_seat("+id+")' style='margin-left:10px;'>删除</a></td>"
+                +"</tr>";
       });
       $("#seats-body").html(html);
     }

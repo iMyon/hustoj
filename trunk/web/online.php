@@ -25,7 +25,7 @@ function online()
 {
 	$self = explode("/",$_SERVER["HTTP_REFERER"]);
 	$url= $self[count($self)-1];  //这两行为获取URL
-	$ip = $_SERVER['REMOTE_ADDR'];
+	$ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']; 	//先取x-forward，不然反向代理之后会显示内网ip
 	$time_stamp =date("Y-m-d H:i:s");
 	$uid = $_SESSION["user_id"];
 	if($res = mysql_query("SELECT * FROM online WHERE `user_id`='$uid'"));

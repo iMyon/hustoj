@@ -33,7 +33,7 @@ HTTP_START="sudo /etc/init.d/apache2 restart"
 
 else
 sudo yum -y update
-sudo yum -y install php httpd php-mysql mysql-server php-xml php-gd gcc-c++  mysql-devel php-mbstring glibc-static flex
+sudo yum -y install php httpd  mysql php-mysql mysql-server php-xml php-gd gcc-c++  mysql-devel php-mbstring glibc-static flex subversion
 sudo /etc/init.d/mysqld start
 WEBBASE=/var/www/html
 APACHEUSER=apache
