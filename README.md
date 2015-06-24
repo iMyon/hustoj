@@ -1,5 +1,7 @@
 hustoj
 ======
+forked from https://github.com/zhblue/hustoj/
+
 Introduction 简介
 
 HUSTOJ is an GPL FreeSoftware?.
@@ -19,7 +21,7 @@ HUSTOJ 是采用GPL的自由软件。
     2、执行如下命令
         sudo apt-get update
         sudo apt-get install subversion
-        sudo svn co https://github.com/zhblue/hustoj/trunk/trunk/install hustoj
+        sudo svn co https://github.com/iMyon/hustoj/trunk/trunk/install hustoj
         cd hustoj
         sudo bash install-interactive.sh
     3、安装后访问服务器80端口上的web服务JudgeOnline目录
